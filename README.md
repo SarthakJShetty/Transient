@@ -9,8 +9,9 @@ This repository contains code & resources for thesis research project, titled **
 
 **Thesis Advisors:** <a title="Professor Guttal" href="" target="_blank">Dr. Vishwesha Guttal</a> **[1]** & <a title="Professor Ghose" href="" target="_blank">Dr. Debasish Ghose</a> **[2]**.
 
-**[1]** - <a title="CES, IISc" href="" target="_blank">Center for Ecological Sciences</a>, Indian Institute of Science, Bengaluru.
-**[2]** - <a title="Aerospace Engineering, IISc" href="" target="_blank">Department of Aerospace Engineering</a>, Indian Institute of Science, Bengaluru.
+**[1]** - <a title="CES, IISc" href="http://ces.iisc.ernet.in" target="_blank">Center for Ecological Sciences</a>, Indian Institute of Science, Bengaluru.
+<br>
+**[2]** - <a title="Aerospace Engineering, IISc" href="http://www.aero.iisc.ernet.in" target="_blank">Department of Aerospace Engineering</a>, Indian Institute of Science, Bengaluru.
 
 - The main purpose of this package is to design a navigation stack for swarm robots, inspired by transient behaviour as seen in ant groups. <a title="Gelblum et al" href="https://www.nature.com/articles/ncomms8729" target="_blank">**[3]**</a>
 
