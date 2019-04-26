@@ -7,7 +7,7 @@ Developing swarm intelligence models for robots inspired by transient behaviour 
 
 This repository contains code & resources for thesis research project, titled **"Transiently Informed Robotic Swarms for Search & Rescue"**, being undertaken at the <a title="IISc" href="https://iisc.ac.in" target="_blank">Indian Institute of Science</a>, Bengaluru.
 
-**Thesis Advisors:** <a title="Professor Guttal" href="" target="_blank">Dr. Vishwesha Guttal</a> **[1]** & <a title="Professor Ghose" href="" target="_blank">Dr. Debasish Ghose</a> **[2]**.
+**Thesis Advisors:** <a title="Professor Guttal" href="https://teelabiisc.wordpress.com/curriculum-vitae/" target="_blank">Dr. Vishwesha Guttal</a> **[1]** & <a title="Professor Ghose" href="http://www.aero.iisc.ernet.in/people/debasish-ghose/" target="_blank">Dr. Debasish Ghose</a> **[2]**.
 
 **[1]** - <a title="CES, IISc" href="http://ces.iisc.ernet.in" target="_blank">Center for Ecological Sciences</a>, Indian Institute of Science, Bengaluru.
 <br>
