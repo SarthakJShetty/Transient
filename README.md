@@ -17,4 +17,18 @@ This repository contains code & resources for thesis research project, titled **
 
 - We hypothesize, that such an architecture will bring about a reduction in the amount of energy expended by the entire swarm, all the while being directed along the right path to the destination.
 
-**Note:** Currently, the repository contains basic movement <a title="Movement Code!" href="https://github.com/SarthakJShetty/Transient/blob/master/movement.py">scripts</a>. Other packages are lined up, and will ne integrated with ```rospy``` before being pushed here to the repository.
+## Usage:
+
+- We initialize a ```empty_world``` to test of the scripts. As the complexity of the environment improves, we will add further levels of complications in the form of obstacles.
+		
+		roslaunch husky_gazebo husky_empty_world.launch
+
+- Once the <a title="Gazebo" href="http://gazebosim.org/" target="_blank">Gazebo</a> world has launched with the <a title="Husky!" href="https://www.clearpathrobotics.com/husky-unmanned-ground-vehicle-robot/" target="_blank">Husky</a> at the center, we invoke the movement.py script, which in-turn generates the GoForward nodes etc.
+		
+		python movement.py
+
+## Known Issues:
+
+1. Currently, the repository contains basic movement <a title="Movement Code!" href="https://github.com/SarthakJShetty/Transient/blob/master/movement.py">scripts</a>. Other packages are lined up, and will ne integrated with ```rospy``` before being pushed here to the repository.
+
+2. ROS code requires ```python2.x``` to function and not ```python3.x```. Hence, take make sure that <a title="Python 2.x" href="https://github.com/SarthakJShetty/Transient#usage">these</a> commands are syntactically correct at execution.
