@@ -1,0 +1,13 @@
+<!-- 
+Hello! This .launch file is part of the larger Transient project (https://github.com/SarthakJShetty/Transient).
+
+This .launch file "launches" (hehe) the RViz tool to visualize the different parameters and tools that can be toggled onboard the Clearpath Husky
+
+-Sarthak J. Shetty
+29/04/2019
+-->
+
+<?xml version="1.0"?>
+<launch>
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find husky_viz)/rviz/robot.rviz" output="screen"/>
+</launch>

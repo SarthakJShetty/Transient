@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<launch>
+
+  <arg name="laser_enabled" default="true"/>
+  <arg name="kinect_enabled" default="false"/>
+
+  <include file="$(find husky_gazebo)/launch/playpen.launch" />
+
+  <include file="$(find husky_gazebo)/launch/spawn_husky.launch">
+    <arg name="laser_enabled" value="$(arg laser_enabled)"/>
+    <arg name="kinect_enabled" value="$(arg kinect_enabled)"/>
+    
+  </include>
+
+  <include file="$(find husky_navigation)/launch/gmapping.launch" />
+
+  <include file="$(find husky_navigation)/launch/move_base.launch" />
+
+	<include file="$(find husky_navigation)/launch/exploration.launch" />
+
+	<node name="rviz" pkg="rviz" type="rviz" args="-d $(find husky_viz)/rviz/robot.rviz" output="screen"/>
+
+</launch>

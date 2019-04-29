@@ -1,0 +1,30 @@
+<!--
+Hello! This is a launch file part of the larger Transient project, which can be found here: https://GitHub.com/SarthakJShetty/Transient.
+
+We are trying to build a navigation stack for multi-robot systems, inspired by transient behaviour displayed in ant swarms.
+
+Finally made a breakthrough in this project after a stagnation of nearly a month. Cheers!
+
+This .launch file generates the playpen that comes along with the Husky configuration files. The gazebo playpen is used as a complex sandbox to test our algorithms and scripts.
+
+Sarthak J. Shetty
+(Still waiting)
+
+-29/04/2019-->
+
+<?xml version="1.0"?>
+
+<launch>
+
+  <arg name="laser_enabled" default="true"/>
+  <arg name="kinect_enabled" default="false"/>
+
+  <include file="$(find husky_gazebo)/launch/playpen.launch" />
+
+  <include file="$(find husky_gazebo)/launch/spawn_husky.launch">
+    <arg name="laser_enabled" value="$(arg laser_enabled)"/>
+    <arg name="kinect_enabled" value="$(arg kinect_enabled)"/>
+    
+  </include>
+
+</launch>
