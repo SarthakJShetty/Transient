@@ -1,0 +1,2 @@
+- setup-file:
+    local-name: /home/sarthak/projects/Transient/catkin_ws/devel/setup.sh

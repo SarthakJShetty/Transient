@@ -1,0 +1,8 @@
+prefix=/home/sarthak/projects/Transient/catkin_ws/install
+
+Name: transient
+Description: Description of transient
+Version: 0.0.0
+Cflags: 
+Libs: -L/home/sarthak/projects/Transient/catkin_ws/install/lib 
+Requires: 
