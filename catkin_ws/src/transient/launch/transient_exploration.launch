@@ -1,3 +1,4 @@
+<?xml version="1.0"?>
 <!-- 
 Hello! This script is part of the larger Transient project that can be checked out here: https://github.com/SarthakJShetty/Transient
 
@@ -6,8 +7,6 @@ This script is responsible for triggering the 3 (for now) core launch files for 
 -Sarthak J. Shetty
 29/04/2019
 -->
-
-<?xml version="1.0"?>
 
 <launch>
 

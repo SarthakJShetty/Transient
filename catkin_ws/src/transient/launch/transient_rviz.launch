@@ -1,3 +1,4 @@
+<?xml version="1.0"?>
 <!-- 
 Hello! This .launch file is part of the larger Transient project (https://github.com/SarthakJShetty/Transient).
 
@@ -7,7 +8,6 @@ This .launch file "launches" (hehe) the RViz tool to visualize the different par
 29/04/2019
 -->
 
-<?xml version="1.0"?>
 <launch>
   <node name="rviz" pkg="rviz" type="rviz" args="-d $(find husky_viz)/rviz/robot.rviz" output="screen"/>
 </launch>
