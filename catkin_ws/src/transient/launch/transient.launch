@@ -12,12 +12,12 @@
     
   </include>
 
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find husky_viz)/rviz/robot.rviz" output="screen"/>
+
   <include file="$(find husky_navigation)/launch/gmapping.launch" />
 
   <include file="$(find husky_navigation)/launch/move_base.launch" />
 
 	<include file="$(find husky_navigation)/launch/exploration.launch" />
-
-	<node name="rviz" pkg="rviz" type="rviz" args="-d $(find husky_viz)/rviz/robot.rviz" output="screen"/>
 
 </launch>
