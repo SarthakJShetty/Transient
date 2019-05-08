@@ -1,5 +1,0 @@
-<launch>
-
-	<node pkg='transient' type='odometry.py' name='transient' output='screen' />
-
-</launch>
