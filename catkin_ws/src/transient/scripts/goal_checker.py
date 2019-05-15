@@ -15,11 +15,13 @@ Cheers!
 
 import rospy
 from actionlib_msgs.msg import GoalStatusArray
+from odometry import odometry_main
+from go_to_specific_point_on_map import location_main
 
 def initialize_node():
 	'''This function initializes the goal_reader node and connects it to the ROS master at the core of the session.'''
-	
-	rospy.init_node('goal_reader', anonymous = True)
+	print('Node has already been initialized')
+	#rospy.init_node('goal_reader', anonymous = True)
 
 def node_reader():
 	'''This function reads what the move_base/status topic is publishing, in order to track an update to the goal status,
@@ -40,8 +42,6 @@ def initial():
 	'''This is the main node where the different functions are sequentially executed to retrieve the goal_status.
 	Eventually, this function will be called over in the movement.py script.'''
 
-	'''Initializing the node to begin talking to ROS Master core.'''
-	initialize_node()
 	'''Reading the current goal status, before action is taken.'''
 	status_text = node_reader()
 	'''Mentioning the desired goal status in the format of a string.'''
@@ -50,6 +50,3 @@ def initial():
 	while (status_text != default_text):
 		'''Recursively update the goal status until the final position has been reached.'''
 		status_text = node_reader()
-
-'''Calling the intial function to read goal status'''
-initial()
