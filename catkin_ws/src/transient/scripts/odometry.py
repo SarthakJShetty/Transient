@@ -18,7 +18,7 @@ def read_coordinates():
 	'''This function reads the coordinates from the odometry node and transfers it over to the odometry_main() function.'''
 
 	'''Initializing the subscriber node here, which retrieves odometry data from the /odometry/filtered topic'''
-	rospy.init_node('odometry_subscriber', anonymous = True)
+	#rospy.init_node('odometry_subscriber', anonymous = True)
 	'''The wait_for_message() function makes sure that the node runs until one message is retrieved, and stops after one message is retrieved.'''
 	message = rospy.wait_for_message('/odometry/filtered', Odometry)
 	'''Rounding the coordinates to 3 decimals places using the round() function'''
@@ -33,6 +33,4 @@ def odometry_main():
 
 	p1_x_coordinates, p1_y_coordinates = read_coordinates()
 	print(p1_x_coordinates, p1_y_coordinates)
-
-'''Evoking the main script here, at the start of the simulations and exploratory actions.'''
-odometry_main()
+	return p1_x_coordinates, p1_y_coordinates
