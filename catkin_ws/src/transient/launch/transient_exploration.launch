@@ -1,4 +1,5 @@
 <?xml version="1.0"?>
+
 <!-- 
 Hello! This script is part of the larger Transient project that can be checked out here: https://github.com/SarthakJShetty/Transient
 
@@ -22,7 +23,7 @@ This script is responsible for triggering the 3 (for now) core launch files for 
 
   <!-- Run Frontier Exploration
   frontier_exploration is a module that enables the robot to autonomously arrive a point in its surrounding, all the while mapping an area enclosed by an n-point polygon -->
-  
+
   <include file="$(find husky_navigation)/launch/exploration.launch" />
 
 </launch>
