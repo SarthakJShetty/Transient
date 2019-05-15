@@ -8,7 +8,6 @@ class GoToPose():
     def __init__(self):
 
         self.goal_sent = False
-
 	# What to do if shut down (e.g. Ctrl-C or failure)
 	rospy.on_shutdown(self.shutdown)
 
@@ -20,7 +19,6 @@ class GoToPose():
 	self.move_base.wait_for_server(rospy.Duration(5))
 
     def goto(self, pos, quat):
-
         # Send a goal
         self.goal_sent = True
 	goal = MoveBaseGoal()
@@ -28,7 +26,6 @@ class GoToPose():
 	goal.target_pose.header.stamp = rospy.Time.now()
         goal.target_pose.pose = Pose(Point(pos['x'], pos['y'], 0.000),
                                      Quaternion(quat['r1'], quat['r2'], quat['r3'], quat['r4']))
-
 	# Start moving
         self.move_base.send_goal(goal)
 
@@ -37,7 +34,6 @@ class GoToPose():
 
         state = self.move_base.get_state()
         result = False
-
         if success and state == GoalStatus.SUCCEEDED:
             # We made it!
             result = True
@@ -55,10 +51,10 @@ class GoToPose():
 
 def location_main(x_coordinate, y_coordinate):
 
-    print('Hello!'+x_coordinate+y_coordinate)
+    print('X Co-ordinate:'+' '+str(x_coordinate)+' '+'Y Co-ordinate:'+' '+str(y_coordinate))
 
     try:
-        rospy.init_node('nav_test', anonymous=False)
+        #rospy.init_node('nav_test', anonymous=False)
         navigator = GoToPose()
 
         # Customize the following values so they are appropriate for your location
