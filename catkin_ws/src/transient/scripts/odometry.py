@@ -24,7 +24,7 @@ def read_coordinates():
 	'''Rounding the coordinates to 3 decimals places using the round() function'''
 	return round(message.pose.pose.position.x, 3), round(message.pose.pose.position.y, 3)
 
-def odometry_main():
+def odometry_check():
 	'''This function receives the coordinates from the read_coordinates() function and stores them for eventual use while rerouting to P1, from P2, P3...P(n).
 	Workflow for the rest of the code:
 	1. Return P1, initital point where the robot spawns within the Gazebo world.
