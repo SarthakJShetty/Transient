@@ -17,19 +17,24 @@ Current flow of this script:
 
 import rospy
 from odometry import odometry_main
-from goal_checker import initial
-from go_to_specific_point_on_map import location_main
+from goal_checker import goal_check
+from autonomous_navigation import autonomous_routing
 
 def initialize_node():
 	'''In this function, we initialize the node that will be utilized by the entire navigation stack'''
 	rospy.init_node('navigation_stack_node', anonymous = True)
 
 def movement_main():
-	'''Main function where individual bits of the stack are evoked one-by-one'''
+
+	'''Initializing the navigation stack node here'''
 	initialize_node()
+	'''Grabbing p1(x, y), the initial point to go to once mapping has been performed'''
 	p1_x, p1_y = odometry_main()
-	initial()
+	'''Checing if the goal provided by the user has been acheived'''
+	goal_check()
+	'''Grabbing the goal coordiantes, relaying back to the bot'''
 	p2_x, p2_y = odometry_main()
-	location_main(p1_x, p1_y)
+	'''Going back to p1, will lead other Huskies from here'''
+	autonomous_routing(p1_x, p1_y)
 
 movement_main()
