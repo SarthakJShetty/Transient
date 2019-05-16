@@ -16,7 +16,7 @@ Current flow of this script:
 9'*. Else: execute evasive behaviour - goforward_and_avoid_obstacle.py '''
 
 import rospy
-from odometry import odometry_main
+from odometry import odometry_check
 from goal_checker import goal_check
 from autonomous_navigation import autonomous_routing
 
@@ -29,11 +29,11 @@ def movement_main():
 	'''Initializing the navigation stack node here'''
 	initialize_node()
 	'''Grabbing p1(x, y), the initial point to go to once mapping has been performed'''
-	p1_x, p1_y = odometry_main()
+	p1_x, p1_y = odometry_check()
 	'''Checing if the goal provided by the user has been acheived'''
 	goal_check()
 	'''Grabbing the goal coordiantes, relaying back to the bot'''
-	p2_x, p2_y = odometry_main()
+	p2_x, p2_y = odometry_check()
 	'''Going back to p1, will lead other Huskies from here'''
 	autonomous_routing(p1_x, p1_y)
 
