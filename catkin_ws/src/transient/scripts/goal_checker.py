@@ -15,8 +15,6 @@ Cheers!
 
 import rospy
 from actionlib_msgs.msg import GoalStatusArray
-from odometry import odometry_main
-from go_to_specific_point_on_map import location_main
 
 def initialize_node():
 	'''This function initializes the goal_reader node and connects it to the ROS master at the core of the session.'''
@@ -38,7 +36,7 @@ def node_reader():
 
 	return status_text
 
-def initial():
+def goal_check():
 	'''This is the main node where the different functions are sequentially executed to retrieve the goal_status.
 	Eventually, this function will be called over in the movement.py script.'''
 
