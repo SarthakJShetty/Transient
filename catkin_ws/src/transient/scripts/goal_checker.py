@@ -18,7 +18,7 @@ from actionlib_msgs.msg import GoalStatusArray
 
 def initialize_node():
 	'''This function initializes the goal_reader node and connects it to the ROS master at the core of the session.'''
-	print('Node has already been initialized')
+	rospy.loginfo('Node has already been initialized')
 	#rospy.init_node('goal_reader', anonymous = True)
 
 def node_reader():
