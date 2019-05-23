@@ -32,5 +32,5 @@ def odometry_check():
 	3. Once P2 is reached, evoke autonomous navigation script once you reach it.'''
 
 	p1_x_coordinates, p1_y_coordinates = read_coordinates()
-	rospy.loginfo(p1_x_coordinates, p1_y_coordinates)
+	rospy.loginfo("Coordinates (%s, %s)", str(p1_x_coordinates), str(p1_y_coordinates))
 	return p1_x_coordinates, p1_y_coordinates
