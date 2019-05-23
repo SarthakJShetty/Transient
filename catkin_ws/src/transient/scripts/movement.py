@@ -25,12 +25,16 @@ def initialize_node():
 	rospy.init_node('navigation_stack_node', anonymous = True)
 
 def movement_main():
+	'''Declaring the main movement script here, which brings together the different parts of the navigation stack'''
 
 	'''Initializing the navigation stack node here'''
 	initialize_node()
 	'''Grabbing p1(x, y), the initial point to go to once mapping has been performed'''
 	p1_x, p1_y = odometry_check()
-	'''Checing if the goal provided by the user has been acheived'''
+	'''Checing if the goal provided by the user has been acheived.
+	Next steps to implement:
+	- If (sensor_value<threshold):
+	- Evoke obstacle avoidance script.'''
 	goal_check()
 	'''Grabbing the goal coordiantes, relaying back to the bot'''
 	p2_x, p2_y = odometry_check()
