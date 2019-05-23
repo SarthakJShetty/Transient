@@ -22,7 +22,7 @@ This repository contains code & resources for thesis research project, titled **
 
 ### Pacakge Overview:
 
-#### [Scripts](https://github.com/SarthakJShetty/Transient/tree/master/catkin_ws/src/transient/scripts)
+#### 1. [Scripts](https://github.com/SarthakJShetty/Transient/tree/master/catkin_ws/src/transient/scripts)
 	
 - [Movement](https://github.com/SarthakJShetty/Transient/blob/master/catkin_ws/src/transient/scripts/movement.py): This script brings together the different parts of the navigation stack together, and acts as the central script triggered at the start of the autonomous simulations.
 
@@ -32,7 +32,7 @@ This repository contains code & resources for thesis research project, titled **
 	
 - [Goal Checker](https://github.com/SarthakJShetty/Transient/blob/master/catkin_ws/src/transient/scripts/goal_checker.py): This script subscribes to the ```/move_base/goal``` topic and checks if the robot has reached the coordinates specified by the user.
 
-#### [Launch Files](https://github.com/SarthakJShetty/Transient/tree/master/catkin_ws/src/transient/launch)
+#### 2. [Launch Files](https://github.com/SarthakJShetty/Transient/tree/master/catkin_ws/src/transient/launch)
 
 - [Gazebo Launch](https://github.com/SarthakJShetty/Transient/blob/master/catkin_ws/src/transient/launch/transient_gazebo.launch): This ```.launch``` file triggers the Gazebo environment and the ```playpen``` configuration of the prototyping world.
 	
