@@ -22,25 +22,25 @@ This repository contains code & resources for thesis research project, titled **
 
 ### Pacakge Overview:
 
-#### [Scripts](https://github.com/SarthakJShetty/Transient/tree/master/catkin_ws/src/transient/launch)
+#### [Scripts](https://github.com/SarthakJShetty/Transient/tree/master/catkin_ws/src/transient/scripts)
 	
-- [Movement](https://github.com/SarthakJShetty/Transient/blob/master/catkin_ws/src/transient/scripts/movement.py) - This script brings together the different parts of the navigation stack together, and acts as the central script triggered at the start of the autonomous simulations.
+- [Movement](https://github.com/SarthakJShetty/Transient/blob/master/catkin_ws/src/transient/scripts/movement.py): This script brings together the different parts of the navigation stack together, and acts as the central script triggered at the start of the autonomous simulations.
 
-- [Odometry](https://github.com/SarthakJShetty/Transient/blob/master/catkin_ws/src/transient/scripts/odometry.py) - This script subscribes to the odometry data being published by the ```/odom``` topic. The coordinates are then passed over to the ```goal_checker.py``` script.
+- [Odometry](https://github.com/SarthakJShetty/Transient/blob/master/catkin_ws/src/transient/scripts/odometry.py): This script subscribes to the odometry data being published by the ```/odom``` topic. The coordinates are then passed over to the ```goal_checker.py``` script.
 	
 - [Autonomous Navigation](https://github.com/SarthakJShetty/Transient/blob/master/catkin_ws/src/transient/scripts/autonomous_navigation.py) - This script charts a path to a given set of coordinates from the mapping data accumlated by the ```gmapping``` module. The robot then autonomously traverses this path.
 	
-- [Goal Checker](https://github.com/SarthakJShetty/Transient/blob/master/catkin_ws/src/transient/scripts/goal_checker.py) - This script subscribes to the ```/move_base/goal``` topic and checks if the robot has reached the coordinates specified by the user.
+- [Goal Checker](https://github.com/SarthakJShetty/Transient/blob/master/catkin_ws/src/transient/scripts/goal_checker.py): This script subscribes to the ```/move_base/goal``` topic and checks if the robot has reached the coordinates specified by the user.
 
-#### [Launch Files](https://github.com/SarthakJShetty/Transient/tree/master/catkin_ws/src/transient/scripts)
+#### [Launch Files](https://github.com/SarthakJShetty/Transient/tree/master/catkin_ws/src/transient/launch)
 
-- [Gazebo Launch](https://github.com/SarthakJShetty/Transient/blob/master/catkin_ws/src/transient/launch/transient_gazebo.launch) - This ```.launch``` file triggers the Gazebo environment and the ```playpen``` configuration of the prototyping world.
+- [Gazebo Launch](https://github.com/SarthakJShetty/Transient/blob/master/catkin_ws/src/transient/launch/transient_gazebo.launch): This ```.launch``` file triggers the Gazebo environment and the ```playpen``` configuration of the prototyping world.
 	
-- [RViz Launch](https://github.com/SarthakJShetty/Transient/blob/master/catkin_ws/src/transient/launch/transient_rviz.launch) - This ```.launch``` file spawns the control panel for the robot interaction tools.
+- [RViz Launch](https://github.com/SarthakJShetty/Transient/blob/master/catkin_ws/src/transient/launch/transient_rviz.launch): This ```.launch``` file spawns the control panel for the robot interaction tools.
 	
-- [Exploration Launch](https://github.com/SarthakJShetty/Transient/blob/master/catkin_ws/src/transient/launch/transient_exploration.launch) - This ```.launch``` file evokes the environment exploration package, which enables the robot to map an unknown portion of the surroundings, utilizing 3 smaller packages: 1. [Adaptive Monte Carlo Localization (AMCL)](http://wiki.ros.org/amcl) 2. [move_base](http://wiki.ros.org/move_base) 3. [Frontier Exploration](http://wiki.ros.org/frontier_exploration)
+- [Exploration Launch](https://github.com/SarthakJShetty/Transient/blob/master/catkin_ws/src/transient/launch/transient_exploration.launch): This ```.launch``` file evokes the environment exploration package, which enables the robot to map an unknown portion of the surroundings, utilizing 3 smaller packages: 1. [Adaptive Monte Carlo Localization (AMCL)](http://wiki.ros.org/amcl) 2. [move_base](http://wiki.ros.org/move_base) 3. [Frontier Exploration](http://wiki.ros.org/frontier_exploration)
 
-- [Transient Launch](https://github.com/SarthakJShetty/Transient/blob/master/catkin_ws/src/transient/launch/transient.launch) - This ```.launch``` file calls the three previous ```.launch``` files at once, instead of running 3 seperate launch files in 3 different terminals.
+- [Transient Launch](https://github.com/SarthakJShetty/Transient/blob/master/catkin_ws/src/transient/launch/transient.launch): This ```.launch``` file calls the three previous ```.launch``` files at once, instead of running 3 seperate launch files in 3 different terminals.
 
 ### Usage:
 
