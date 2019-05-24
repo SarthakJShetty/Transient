@@ -1,11 +1,16 @@
 import rospy
 from sensor_msgs.msg import LaserScan
+from goforward_and_avoid_obstacle import GoForwardAvoid
 
-def callback(message):
-	rospy.loginfo("\nValue at 0: %s \nValue at 90:%s \nValue at 180:%s \n", str(message.ranges[0]), str(message.ranges[360]), str(message.ranges[719]))
+'''def callback(message):
+	return str(message.ranges[360])'''
 
 def main_function():
 	rospy.init_node('laser_scanner', anonymous=True)
 	sub = rospy.wait_for_message('/scan', LaserScan)
-	callback(sub)
-main_function()
+	return str(sub.ranges[360])
+
+lidar_reading = main_function()
+
+if (lidar_reading<'5'):
+	GoForwardAvoid()
