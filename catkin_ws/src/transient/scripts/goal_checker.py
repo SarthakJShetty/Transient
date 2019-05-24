@@ -16,25 +16,17 @@ Cheers!
 import rospy
 from actionlib_msgs.msg import GoalStatusArray
 
-def initialize_node():
-	'''This function initializes the goal_reader node and connects it to the ROS master at the core of the session.'''
-	rospy.loginfo('Node has already been initialized')
-	#rospy.init_node('goal_reader', anonymous = True)
-
 def node_reader():
 	'''This function reads what the move_base/status topic is publishing, in order to track an update to the goal status,
 	and then send the status over to the initial function, where appropriate action will be taken.'''
-	
+
 	'''Here, we read the message being published by yhe move_base/status topic. Note, the format of the message is GoalStatusArray,
 	 which is obtained from the actionlib_msgs.msg library'''
 	message = rospy.wait_for_message('move_base/status', GoalStatusArray)
-	
-	'''This block of code processes the message retrieved and only sends the goal status over the wire to the intial node.'''
-	message_str = str(message.status_list[0])
-	message_list = message_str.split(':')
-	status_text = message_list[7]
 
-	return status_text
+	'''This block of code processes the message retrieved and only sends the goal status over the wire to the intial node.'''
+	message_str = str(message.status_list[0]).split(':')[7]
+	return message_str
 
 def goal_check():
 	'''This is the main node where the different functions are sequentially executed to retrieve the goal_status.
@@ -48,3 +40,4 @@ def goal_check():
 	while (status_text != default_text):
 		'''Recursively update the goal status until the final position has been reached.'''
 		status_text = node_reader()
+		return status_text
