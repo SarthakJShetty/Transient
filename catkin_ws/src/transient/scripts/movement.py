@@ -12,13 +12,15 @@ Current flow of this script:
 6. Once goal status goes to Goal Acheived, while loop is exited. - goal_checker.py
 7. P2(x, y) is noted down - odometry.py
 8. Autonomous navigation is triggered - go_to_specific_point_on_map.py
-9*. Declare a variable and hold sensor value in it. while sensorvalue > threshold, proceed.
+9*. Declare a variable and hold sensor value in it. while sensor_value > threshold, proceed.
 9'*. Else: execute evasive behaviour - goforward_and_avoid_obstacle.py '''
 
 import rospy
 from odometry import odometry_check
 from goal_checker import goal_check
 from autonomous_navigation import autonomous_routing
+from goforward_and_avoid_obstacle import GoForwardAvoid
+from scan import sensor_value
 
 def initialize_node():
 	'''In this function, we initialize the node that will be utilized by the entire navigation stack'''
@@ -35,7 +37,14 @@ def movement_main():
 	Next steps to implement:
 	- If (sensor_value<threshold):
 	- Evoke obstacle avoidance script.'''
-	goal_check()
+	while(goal_check()!= " \"Goal reached.\""):
+		rospy.loginfo('Hello there')
+		if(sensor_value()<'3'):
+			rospy.loginfo('Obstacle Encountered')
+			GoForwardAvoid()
+		else:
+			rospy.loginfo('Passing')
+			pass
 	'''Grabbing the goal coordiantes, relaying back to the bot'''
 	p2_x, p2_y = odometry_check()
 	'''Going back to p1, will lead other Huskies from here'''
