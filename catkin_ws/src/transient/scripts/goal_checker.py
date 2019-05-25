@@ -40,4 +40,7 @@ def goal_check():
 	while (status_text != default_text):
 		'''Recursively update the goal status until the final position has been reached.'''
 		status_text = node_reader()
-		return status_text
+		if(status_text == default_text):
+			return status_text
+		else:
+			return status_text
