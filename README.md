@@ -1,6 +1,6 @@
 # Transient
 
-Developing swarm intelligence models for robots inspired by transient behaviour of ant swarms.
+Developing a navigagation stack for swarm robots.
 
 :warning: **Code is buggy** :warning:
 
