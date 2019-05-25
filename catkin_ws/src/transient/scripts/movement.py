@@ -36,18 +36,20 @@ def movement_main():
 	'''Checing if the goal provided by the user has been acheived.
 	Next steps to implement:
 	- If (sensor_value<threshold):
-	- Evoke obstacle avoidance script.'''
-	while(goal_check()!= " \"Goal reached.\""):
-		rospy.loginfo('Hello there')
-		if(sensor_value()<'3'):
-			rospy.loginfo('Obstacle Encountered')
-			GoForwardAvoid()
-		else:
-			rospy.loginfo('Passing')
-			pass
+		- Evoke obstacle avoidance script.'''
+	while(goal_check() != " \"Goal reached.\""):
+		rospy.loginfo("Heading to goal")
 	'''Grabbing the goal coordiantes, relaying back to the bot'''
 	p2_x, p2_y = odometry_check()
-	'''Going back to p1, will lead other Huskies from here'''
-	autonomous_routing(p1_x, p1_y)
+	'''Maneouvers to hed back to (p1_x, p1_y)'''
+	while(goal_check() != " \"Goal reached.\""):
+		rospy.loginfo(goal_check())
+		if(sensor_value()>'1'):
+			rospy.loginfo('Heading back to:'+str(p1_x)+" "+str(p1_y))
+			autonomous_routing(p1_x, p1_y)
+		else:
+			rospy.loginfo('Encountered Obstacle:'+" "+str(sensor_value))
+			GoForwardAvoid()
+			autonomous_routing(p1_x, p1_y)
 
 movement_main()
