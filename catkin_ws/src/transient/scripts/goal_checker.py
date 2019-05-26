@@ -34,13 +34,5 @@ def goal_check():
 
 	'''Reading the current goal status, before action is taken.'''
 	status_text = node_reader()
-	'''Mentioning the desired goal status in the format of a string.'''
-	default_text = " \"Goal reached.\""
-	'''Recursively check the goal status & update until the robot has reached the final position.'''
-	while (status_text != default_text):
-		'''Recursively update the goal status until the final position has been reached.'''
-		status_text = node_reader()
-		if(status_text == default_text):
-			return status_text
-		else:
-			return status_text
+	'''Return status_text as read by the node reader'''
+	return status_text
