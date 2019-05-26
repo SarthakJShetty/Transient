@@ -31,25 +31,34 @@ def movement_main():
 
 	'''Initializing the navigation stack node here'''
 	initialize_node()
+
 	'''Grabbing p1(x, y), the initial point to go to once mapping has been performed'''
 	p1_x, p1_y = odometry_check()
-	'''Checing if the goal provided by the user has been acheived.
-	Next steps to implement:
-	- If (sensor_value<threshold):
-		- Evoke obstacle avoidance script.'''
+
+	'''Checking if agent has reached the goal provided via RViz interface'''
 	while(goal_check() != " \"Goal reached.\""):
-		rospy.loginfo("Heading to goal:"+" " + str(goal_check()))
-	'''Grabbing the goal coordiantes, relaying back to the bot'''
+		rospy.loginfo("Goal Stauts:"+" " + str(goal_check()))
+
 	p2_x, p2_y = odometry_check()
-	'''Maneouvers to hed back to (p1_x, p1_y)'''
-	while(goal_check() != " \"Goal reached.\""):
-		rospy.loginfo("Goal check status:"+" "+str(goal_check()))
-		if(sensor_value()>'1'):
-			rospy.loginfo('Heading back to:'+str(p1_x)+" "+str(p1_y))
-			autonomous_routing(p1_x, p1_y)
-		else:
+
+	'''Maneouvers to hed back to (p1_x, p1_y):
+		- Received coordinates from odometry check
+		- Loop until goal_check() sends 'Goal reached' status:
+		-  If sensor value() returns < 1 evoked avoid obstacle'''
+	goal_check_temp_status = 'Goal Not Reached'
+	while(goal_check_temp_status != " \"Goal reached.\""):
+		rospy.loginfo("Goal check status:"+" "+str(goal_check_temp_status))
+		autonomous_routing(p1_x, p1_y)
+		rospy.loginfo('LiDAR Reading:'+' '+str(sensor_value()))
+
+		if(sensor_value()<'1'):
+			rospy.loginfo(str(odometry_check()))
 			rospy.loginfo('Encountered Obstacle:'+" "+str(sensor_value))
 			GoForwardAvoid()
-			autonomous_routing(p1_x, p1_y)
+		else:
+			rospy.loginfo(str(odometry_check()))
+			rospy.loginfo('No obstacle encountered')
+
+		goal_check_temp_status = goal_check()
 
 movement_main()
