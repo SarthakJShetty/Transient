@@ -51,7 +51,7 @@ class GoToPose():
 
 def autonomous_routing(x_coordinate, y_coordinate):
 
-    rospy.loginfo('X Co-ordinate:'+' '+str(x_coordinate)+' '+'Y Co-ordinate:'+' '+str(y_coordinate))
+    rospy.loginfo('Routing to:'+' '+'X Co-ordinate:'+' '+str(x_coordinate)+'|'+'Y Co-ordinate:'+' '+str(y_coordinate))
 
     try:
         #rospy.init_node('nav_test', anonymous=False)
