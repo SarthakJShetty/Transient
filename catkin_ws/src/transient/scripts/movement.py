@@ -46,19 +46,11 @@ def movement_main():
 		- Loop until goal_check() sends 'Goal reached' status:
 		-  If sensor value() returns < 1 evoked avoid obstacle'''
 	goal_check_temp_status = 'Goal Not Reached'
+
 	while(goal_check_temp_status != " \"Goal reached.\""):
+	
 		rospy.loginfo("Goal check status:"+" "+str(goal_check_temp_status))
 		autonomous_routing(p1_x, p1_y)
-		rospy.loginfo('LiDAR Reading:'+' '+str(sensor_value()))
-
-		if(sensor_value()<'1'):
-			rospy.loginfo(str(odometry_check()))
-			rospy.loginfo('Encountered Obstacle:'+" "+str(sensor_value))
-			GoForwardAvoid()
-		else:
-			rospy.loginfo(str(odometry_check()))
-			rospy.loginfo('No obstacle encountered')
-
 		goal_check_temp_status = goal_check()
 
 movement_main()
