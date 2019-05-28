@@ -23,7 +23,7 @@ This repository contains code & resources for thesis research project, titled **
 
 ### 2.0 Pacakge Overview:
 
-#### 2.1. [Scripts](https://github.com/SarthakJShetty/Transient/tree/master/catkin_ws/src/transient/scripts)
+#### 2.1 [Scripts](https://github.com/SarthakJShetty/Transient/tree/master/catkin_ws/src/transient/scripts)
 	
 - **2.1.1** [Movement](https://github.com/SarthakJShetty/Transient/blob/master/catkin_ws/src/transient/scripts/movement.py): This script brings together the different parts of the navigation stack together, and acts as the central script triggered at the start of the autonomous simulations.
 
