@@ -25,13 +25,13 @@ This repository contains code & resources for thesis research project, titled **
 
 #### 2.1. [Scripts](https://github.com/SarthakJShetty/Transient/tree/master/catkin_ws/src/transient/scripts)
 	
-- 2.1.1 [Movement](https://github.com/SarthakJShetty/Transient/blob/master/catkin_ws/src/transient/scripts/movement.py): This script brings together the different parts of the navigation stack together, and acts as the central script triggered at the start of the autonomous simulations.
+- **2.1.1** [Movement](https://github.com/SarthakJShetty/Transient/blob/master/catkin_ws/src/transient/scripts/movement.py): This script brings together the different parts of the navigation stack together, and acts as the central script triggered at the start of the autonomous simulations.
 
-- 2.1.2 [Odometry](https://github.com/SarthakJShetty/Transient/blob/master/catkin_ws/src/transient/scripts/odometry.py): This script subscribes to the odometry data being published by the ```/odom``` topic. The coordinates are then passed over to the ```goal_checker.py``` script.
+- **2.1.2** [Odometry](https://github.com/SarthakJShetty/Transient/blob/master/catkin_ws/src/transient/scripts/odometry.py): This script subscribes to the odometry data being published by the ```/odom``` topic. The coordinates are then passed over to the ```goal_checker.py``` script.
 	
-- 2.1.3 [Autonomous Navigation](https://github.com/SarthakJShetty/Transient/blob/master/catkin_ws/src/transient/scripts/autonomous_navigation.py) - This script charts a path to a given set of coordinates from the mapping data accumlated by the ```gmapping``` module. The robot then autonomously traverses this path.
+- **2.1.3** [Autonomous Navigation](https://github.com/SarthakJShetty/Transient/blob/master/catkin_ws/src/transient/scripts/autonomous_navigation.py) - This script charts a path to a given set of coordinates from the mapping data accumlated by the ```gmapping``` module. The robot then autonomously traverses this path.
 	
-- 2.1.4 [Goal Checker](https://github.com/SarthakJShetty/Transient/blob/master/catkin_ws/src/transient/scripts/goal_checker.py): This script subscribes to the ```/move_base/goal``` topic and checks if the robot has reached the coordinates specified by the user.
+- **2.1.4** [Goal Checker](https://github.com/SarthakJShetty/Transient/blob/master/catkin_ws/src/transient/scripts/goal_checker.py): This script subscribes to the ```/move_base/goal``` topic and checks if the robot has reached the coordinates specified by the user.
 
 #### 2.2 [Launch Files](https://github.com/SarthakJShetty/Transient/tree/master/catkin_ws/src/transient/launch)
 
