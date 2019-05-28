@@ -18,7 +18,7 @@ This repository contains code & resources for thesis research project, titled **
 
 - We hypothesize, that such an architecture will bring about a reduction in the amount of energy expended by the entire swarm, all the while being directed along the optimal path to the destination, in-turn set by a user.
 
-- Currently, this repository contains ```catkin_ws```, which is the ```catkin``` workspace for the project. It contains the ```transient``` package which in-turn comprises of the (launch)[https://github.com/SarthakJShetty/Transient/tree/master/catkin_ws/src/transient/launch] files and [scripts](https://github.com/SarthakJShetty/Transient/tree/master/catkin_ws/src/transient/scripts).
+- Currently, this repository contains ```catkin_ws```, which is the ```catkin``` workspace for the project. It contains the ```transient``` package which in-turn comprises of the [launch](https://github.com/SarthakJShetty/Transient/tree/master/catkin_ws/src/transient/launch) files and [scripts](https://github.com/SarthakJShetty/Transient/tree/master/catkin_ws/src/transient/scripts).
 
 ### Pacakge Overview:
 
