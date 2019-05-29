@@ -21,6 +21,7 @@ from goal_checker import goal_check
 from autonomous_navigation import autonomous_routing
 from goforward_and_avoid_obstacle import GoForwardAvoid
 from scan import sensor_value
+from mathwiz import calculator, waypoint_generator
 
 def initialize_node():
 	'''In this function, we initialize the node that will be utilized by the entire navigation stack'''
@@ -39,18 +40,28 @@ def movement_main():
 	while(goal_check() != " \"Goal reached.\""):
 		rospy.loginfo("Goal Stauts:"+" " + str(goal_check()))
 
+	'''This function extracts the final odometry of the robot once it has reached the goal'''
 	p2_x, p2_y = odometry_check()
 
-	'''Maneouvers to hed back to (p1_x, p1_y):
-		- Received coordinates from odometry check
-		- Loop until goal_check() sends 'Goal reached' status:
-		-  If sensor value() returns < 1 evoked avoid obstacle'''
-	goal_check_temp_status = 'Goal Not Reached'
+	'''This function returns the del_x and del_y calculator, which will be used to generate
+	a series of way-points which will autonomously traversed.'''
+	del_x, del_y = calculator(p1_x, p1_y, p2_x, p2_y)
 
-	while(goal_check_temp_status != " \"Goal reached.\""):
-	
-		rospy.loginfo("Goal check status:"+" "+str(goal_check_temp_status))
-		autonomous_routing(p1_x, p1_y)
-		goal_check_temp_status = goal_check()
+	'''This function generates a set of waypoints that will be then sent over to the
+	autonomous_routing() function.'''
+	waypoints_x, waypoints_y = waypoint_generator(p1_x, p1_y, del_x, del_y)
+
+	for waypoint_index in range(0, len(waypoints_x)):
+		rospy.loginfo("Currently at waypoint:"+' '+str(waypoint_index))
+		'''Checking if there's an obstacle up-ahead while moving through the waypoints'''
+		if(sensor_value()<'1'):
+			rospy.loginfo('Encountered Obstacle:'+' '+str(sensor_value()))
+			'''If obstacle exists, GoForwardAvoid(), then go to destination'''
+			GoForwardAvoid()
+			autonomous_routing(waypoints_x[waypoint_index], waypoints_y[waypoint_index])
+		else:
+			'''If there is no obstacle, head over to the destination'''
+			rospy.loginfo('No obstacle encountered')
+			autonomous_routing(waypoints_x[waypoint_index], waypoints_y[waypoint_index])
 
 movement_main()
