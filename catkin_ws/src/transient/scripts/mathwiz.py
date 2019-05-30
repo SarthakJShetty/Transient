@@ -30,18 +30,18 @@ def waypoint_generator(p1_x, p1_y, p2_x, p2_y, del_x, del_y):
 	waypoints_y = []
 
 	'''Here, we are looping through the increments added to p1(x, y)'''
-	for waypoint_counter in range(0, 10):
+	for waypoint_counter in range(0, 11):
 
 		'''Incrementing the value of p1(x, y) using a simple linear function'''
 		if(p1_x<p2_x):
-			temp_p1_x = p1_x + (waypoint_counter + 1)*del_x
+			temp_p1_x = p1_x + (waypoint_counter)*del_x
 		else:
-			temp_p1_x = p1_x - (waypoint_counter + 1)*del_x
+			temp_p1_x = p1_x - (waypoint_counter)*del_x
 
 		if(p1_y<p2_y):
-			temp_p1_y = p1_y + (waypoint_counter + 1)*del_y
+			temp_p1_y = p1_y + (waypoint_counter)*del_y
 		else:
-			temp_p1_y = p1_y - (waypoint_counter + 1)*del_y
+			temp_p1_y = p1_y - (waypoint_counter)*del_y
 
 		'''Rounding the value so that the robot does not get stuck in infinite loops'''
 		temp_p1_x = round(temp_p1_x, 2)
