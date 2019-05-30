@@ -22,14 +22,14 @@ def read_coordinates():
 	'''The wait_for_message() function makes sure that the node runs until one message is retrieved, and stops after one message is retrieved.'''
 	message = rospy.wait_for_message('/odometry/filtered', Odometry)
 	'''Rounding the coordinates to 3 decimals places using the round() function'''
-	return round(message.pose.pose.position.x, 3), round(message.pose.pose.position.y, 3)
+	return round(message.pose.pose.position.x, 2), round(message.pose.pose.position.y, 2)
 
 def odometry_check():
-	'''This function receives the coordinates from the read_coordinates() function and stores them for eventual use while rerouting to P1, from P2, P3...P(n).
+	'''This function receives the coordinates from the read_coordinates() function and stores them for eventual use while rerouting to P1, from P2, P3...P(n)
 	Workflow for the rest of the code:
-	1. Return P1, initital point where the robot spawns within the Gazebo world.
-	2. Until Frontier Exploration goal (P2) is reached, don't retrieve coordinates.
-	3. Once P2 is reached, evoke autonomous navigation script once you reach it.'''
+	1. Return P1, initital point where the robot spawns within the Gazebo world
+	2. Until Frontier Exploration goal (P2) is reached, don't retrieve coordinates
+	3. Once P2 is reached, evoke autonomous navigation script once you reach it'''
 
 	p1_x_coordinates, p1_y_coordinates = read_coordinates()
 	rospy.loginfo("Coordinates (%s, %s)", str(p1_x_coordinates), str(p1_y_coordinates))
