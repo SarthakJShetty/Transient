@@ -1,4 +1,3 @@
-
 # Transient
 
 Developing a navigagation stack for swarm robots.
@@ -32,6 +31,10 @@ This repository contains code & resources for thesis research project, titled **
 - **2.1.3** [Autonomous Navigation](https://github.com/SarthakJShetty/Transient/blob/master/catkin_ws/src/transient/scripts/autonomous_navigation.py) - This script charts a path to a given set of coordinates from the mapping data accumlated by the ```gmapping``` module. The robot then autonomously traverses this path.
 	
 - **2.1.4** [Goal Checker](https://github.com/SarthakJShetty/Transient/blob/master/catkin_ws/src/transient/scripts/goal_checker.py): This script subscribes to the ```/move_base/goal``` topic and checks if the robot has reached the coordinates specified by the user.
+
+- **2.1.5** [Scan](https://github.com/SarthakJShetty/Transient/blob/master/catkin_ws/src/transient/scripts/scan.py): The node in this unit subscribes to the ```/scan``` topic and publishes the LiDAR unit required to carry out obstacle avoidance during [autonomous navigation](https://github.com/SarthakJShetty/Transient/blob/master/catkin_ws/src/transient/scripts/autonomous_navigation.py).
+
+- **2.1.6** [MathWiz](https://github.com/SarthakJShetty/Transient/blob/master/catkin_ws/src/transient/scripts/mathwiz.py): The processing of the ```del_x``` & ```del_y``` & ```waypoint``` generation is carried out by this unit. 
 
 #### 2.2 [Launch Files](https://github.com/SarthakJShetty/Transient/tree/master/catkin_ws/src/transient/launch)
 
