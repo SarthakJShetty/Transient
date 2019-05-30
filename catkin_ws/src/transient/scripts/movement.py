@@ -49,7 +49,7 @@ def movement_main():
 
 	'''This function generates a set of waypoints that will be then sent over to the
 	autonomous_routing() function.'''
-	waypoints_x, waypoints_y = waypoint_generator(p1_x, p1_y, del_x, del_y)
+	waypoints_x, waypoints_y = waypoint_generator(p1_x, p1_y, p2_x, p2_y, del_x, del_y)
 
 	for waypoint_index in range(0, len(waypoints_x)):
 		rospy.loginfo("Currently at waypoint:"+' '+str(waypoint_index))
