@@ -16,14 +16,14 @@ Loop to be implemented in this script:
 import rospy
 
 def calculator(p1_x, p1_y, p2_x, p2_y):
-	'''This function calculates the increments which will be appended to p1(x, y)'''
-	'''Calculating the mod of the difference and returning it back to the movement script'''
-	del_x = float(abs(int(p1_x) - int(p2_x)))/10
-	del_y = float(abs(int(p1_y) - int(p2_y)))/10
+	'''This function calculates the increments which will be appended to p1(x, y)
+	Calculating the mod of the difference and returning it back to the movement script'''
+	del_x = float(abs((int(p1_x)) - (int(p2_x))))/10
+	del_y = float(abs((int(p1_y)) - (int(p2_y))))/10
 	rospy.loginfo('Del_X value:'+' '+str(del_x)+' | '+'Del_Y:'+' '+str(del_y))
 	return del_x, del_y
 
-def waypoint_generator(p1_x, p1_y, del_x, del_y):
+def waypoint_generator(p1_x, p1_y, p2_x, p2_y, del_x, del_y):
 	'''This function generates a set of 10 waypoints which will be then sent to the autonomous_routing()
 	 function. This list is then sent over to the movement script.'''
 	waypoints_x = []
@@ -31,18 +31,28 @@ def waypoint_generator(p1_x, p1_y, del_x, del_y):
 
 	'''Here, we are looping through the increments added to p1(x, y)'''
 	for waypoint_counter in range(0, 10):
+
 		'''Incrementing the value of p1(x, y) using a simple linear function'''
-		temp_p1_x = p1_x + (waypoint_counter + 1)*del_x
-		temp_p1_y = p1_y + (waypoint_counter + 1)*del_y
+		if(p1_x<p2_x):
+			temp_p1_x = p1_x + (waypoint_counter + 1)*del_x
+		else:
+			temp_p1_x = p1_x - (waypoint_counter + 1)*del_x
+
+		if(p1_y<p2_y):
+			temp_p1_y = p1_y + (waypoint_counter + 1)*del_y
+		else:
+			temp_p1_y = p1_y - (waypoint_counter + 1)*del_y
+
 		'''Rounding the value so that the robot does not get stuck in infinite loops'''
 		temp_p1_x = round(temp_p1_x, 2)
 		temp_p1_y = round(temp_p1_y, 2)
 		'''Appending the acquired to a list which will be then passed to the autonomous routing function'''
 		waypoints_x.append(temp_p1_x)
 		waypoints_y.append(temp_p1_y)
-		'''Here, we flip the list to go from p2 to p1'''
-		waypoints_x.reverse()
-		waypoints_y.reverse()
+
+	'''Here, we flip the list to go from p2 to p1'''
+	waypoints_x.reverse()
+	waypoints_y.reverse()
 
 	rospy.loginfo('Waypoints_X generated:'+' '+str(waypoints_x)+' | '+'Waypoints_Y'+' '+str(waypoints_y))
 
