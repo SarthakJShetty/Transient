@@ -22,7 +22,7 @@ def node_reader():
 
 	'''Here, we read the message being published by yhe move_base/status topic. Note, the format of the message is GoalStatusArray,
 	 which is obtained from the actionlib_msgs.msg library'''
-	message = rospy.wait_for_message('move_base/status', GoalStatusArray)
+	message = rospy.wait_for_message('/move_base/status', GoalStatusArray)
 
 	'''This block of code processes the message retrieved and only sends the goal status over the wire to the intial node.'''
 	message_str = str(message.status_list[0]).split(':')[7]
