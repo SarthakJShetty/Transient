@@ -55,5 +55,3 @@ def waypoint_generator(p1_x, p1_y, p2_x, p2_y, del_x, del_y):
 	waypoints_y.reverse()
 
 	rospy.loginfo('Waypoints_X generated:'+' '+str(waypoints_x)+' | '+'Waypoints_Y'+' '+str(waypoints_y))
-
-	return waypoints_x, waypoints_y
